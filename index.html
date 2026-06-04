@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LixStudio — Logo, Branding & Web Design untuk UMKM</title>
+<meta name="description" content="LixStudio bantu UMKM tampil profesional. Logo design mulai Rp 500rb. Portfolio: lixscout.com">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+/* ============================
+   RESET & BASE
+   ============================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black: #0a0a0a;
+  --white: #fafafa;
+  --gray-50: #f5f5f5;
+  --gray-100: #e5e5e5;
+  --gray-200: #d4d4d4;
+  --gray-400: #a3a3a3;
+  --gray-500: #737373;
+  --gray-600: #525252;
+  --gray-800: #262626;
+  --gray-900: #171717;
+  --accent: #0a0a0a;
+  --accent-soft: #f0f0f0;
+
+  --font-sans: 'Inter', -apple-system, system-ui, sans-serif;
+  --font-serif: 'DM Serif Display', Georgia, serif;
+
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 1rem;
+  --sp-4: 1.5rem;
+  --sp-5: 2.5rem;
+  --sp-6: 4rem;
+  --sp-7: 6rem;
+  --sp-8: 10rem;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  color: var(--black);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--black);
+  color: var(--white);
+}
+
+/* ============================
+   NAVIGATION
+   ============================ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1.25rem 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: all 0.4s ease;
+}
+.nav.scrolled {
+  background: rgba(250,250,250,0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.nav-logo {
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: -0.03em;
+  color: var(--black);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.nav-logo:hover { opacity: 0.7; }
+.nav-logo span {
+  display: inline-block;
+  width: 8px; height: 8px;
+  background: var(--black);
+  border-radius: 50%;
+  margin-left: 2px;
+  vertical-align: middle;
+}
+
+.nav-links {
+  display: flex; align-items: center; gap: 2rem;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--gray-600);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--black); }
+
+.nav-cta {
+  background: var(--black) !important;
+  color: var(--white) !important;
+  padding: 0.5rem 1.2rem;
+  border-radius: 100px;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em;
+  transition: transform 0.2s var(--ease), opacity 0.2s !important;
+}
+.nav-cta:hover { transform: scale(1.05); opacity: 0.9 !important; }
+
+.mobile-btn {
+  display: none;
+  background: none; border: none; cursor: pointer;
+  width: 24px; height: 18px; position: relative;
+}
+.mobile-btn span {
+  display: block; width: 100%; height: 2px;
+  background: var(--black);
+  position: absolute; left: 0;
+  transition: all 0.3s ease;
+}
+.mobile-btn span:nth-child(1) { top: 0; }
+.mobile-btn span:nth-child(2) { top: 8px; }
+.mobile-btn span:nth-child(3) { top: 16px; }
+
+/* ============================
+   HERO
+   ============================ */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 8rem 2rem 4rem;
+  position: relative;
+}
+
+.hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--gray-500);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.hero-tag::before {
+  content: '';
+  width: 8px; height: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.3); }
+}
+
+.hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  margin-bottom: 1.5rem;
+}
+.hero h1 em {
+  font-style: italic;
+  font-family: var(--font-serif);
+}
+
+.hero-desc {
+  font-size: 1.1rem;
+  color: var(--gray-500);
+  line-height: 1.7;
+  max-width: 480px;
+  margin-bottom: 2.5rem;
+}
+
+.hero-actions {
+  display: flex; gap: 1rem; align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  border-radius: 100px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: all 0.25s var(--ease);
+  border: none; cursor: pointer;
+}
+.btn:active { transform: scale(0.97); }
+
+.btn-dark {
+  background: var(--black);
+  color: var(--white);
+}
+.btn-dark:hover {
+  background: var(--gray-800);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--black);
+  border: 1.5px solid var(--gray-200);
+}
+.btn-ghost:hover {
+  border-color: var(--black);
+  transform: translateY(-2px);
+}
+
+.hero-visual {
+  position: relative;
+}
+
+.hero-card {
+  background: var(--gray-50);
+  border: 1px solid var(--gray-100);
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-card::before {
+  content: 'SHOWCASE';
+  position: absolute; top: 1.5rem; right: 1.5rem;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--gray-400);
+}
+
+.hero-card-img {
+  width: 100%;
+  aspect-ratio: 1;
+  background: white;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--gray-100);
+}
+.hero-card-img img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+}
+
+.hero-card-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.hero-card-name {
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+}
+.hero-card-type {
+  font-size: 0.75rem;
+  color: var(--gray-500);
+  margin-top: 0.25rem;
+}
+.hero-card-tag {
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 0.3rem 0.75rem;
+  background: var(--black);
+  color: var(--white);
+  border-radius: 100px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Floating stats */
+.float-stat {
+  position: absolute;
+  background: white;
+  border: 1px solid var(--gray-100);
+  border-radius: 1rem;
+  padding: 0.75rem 1.25rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  z-index: 2;
+}
+.float-stat-1 { top: -1rem; left: -2rem; }
+.float-stat-2 { bottom: 2rem; right: -1.5rem; }
+.float-stat-num {
+  font-weight: 800;
+  font-size: 1.2rem;
+  letter-spacing: -0.03em;
+}
+.float-stat-label {
+  font-size: 0.65rem;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ============================
+   MARQUEE
+   ============================ */
+.marquee-wrap {
+  border-top: 1px solid var(--gray-100);
+  border-bottom: 1px solid var(--gray-100);
+  padding: 1.25rem 0;
+  overflow: hidden;
+}
+.marquee {
+  display: flex;
+  animation: marquee 20s linear infinite;
+  white-space: nowrap;
+}
+.marquee-item {
+  flex-shrink: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 0 2rem;
+  display: flex; align-items: center; gap: 1.5rem;
+}
+.marquee-item::after {
+  content: '✦';
+  font-size: 0.6rem;
+  color: var(--gray-300);
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ============================
+   SECTION COMMON
+   ============================ */
+.section {
+  padding: clamp(4rem, 8vw, 8rem) 2rem;
+  position: relative;
+}
+
+.section-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.section-label::before {
+  content: '';
+  width: 20px; height: 1.5px;
+  background: var(--gray-300);
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  max-width: 600px;
+  margin-bottom: 1rem;
+}
+
+.section-desc {
+  font-size: 1rem;
+  color: var(--gray-500);
+  line-height: 1.7;
+  max-width: 500px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ============================
+   SERVICES
+   ============================ */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--gray-100);
+  border: 1px solid var(--gray-100);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  margin-top: 3rem;
+}
+
+.service-card {
+  background: white;
+  padding: 2.5rem;
+  transition: background 0.3s ease;
+  cursor: default;
+}
+.service-card:hover {
+  background: var(--gray-50);
+}
+
+.service-num {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--gray-300);
+  letter-spacing: 0.1em;
+  margin-bottom: 2rem;
+}
+
+.service-icon {
+  width: 48px; height: 48px;
+  margin-bottom: 1.5rem;
+  display: flex; align-items: center; justify-content: center;
+}
+.service-icon svg {
+  width: 32px; height: 32px;
+  stroke: var(--black);
+  stroke-width: 1.5;
+  fill: none;
+}
+
+.service-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.service-desc {
+  font-size: 0.875rem;
+  color: var(--gray-500);
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+
+.service-price {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.service-price strong {
+  color: var(--black);
+  font-size: 1.25rem;
+  letter-spacing: -0.03em;
+}
+
+/* ============================
+   PORTFOLIO
+   ============================ */
+.portfolio-bg {
+  background: var(--gray-50);
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.portfolio-card {
+  background: white;
+  border: 1px solid var(--gray-100);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  transition: all 0.3s var(--ease);
+  cursor: pointer;
+}
+.portfolio-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+}
+
+.portfolio-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: var(--gray-50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-bottom: 1px solid var(--gray-100);
+}
+.portfolio-img img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+.portfolio-card:hover .portfolio-img img {
+  transform: scale(1.05);
+}
+
+.portfolio-info {
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.portfolio-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: -0.02em;
+}
+.portfolio-type {
+  font-size: 0.75rem;
+  color: var(--gray-500);
+  margin-top: 0.2rem;
+}
+.portfolio-badge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 0.3rem 0.7rem;
+  background: var(--accent-soft);
+  border-radius: 100px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gray-600);
+}
+
+/* Add work CTA */
+.portfolio-add {
+  background: var(--gray-50);
+  border: 2px dashed var(--gray-200);
+  border-radius: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.portfolio-add:hover {
+  border-color: var(--black);
+  background: white;
+}
+.portfolio-add-icon {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--gray-100);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+.portfolio-add:hover .portfolio-add-icon {
+  background: var(--black);
+}
+.portfolio-add-icon svg {
+  width: 20px; height: 20px;
+  stroke: var(--gray-500);
+  stroke-width: 2;
+  fill: none;
+  transition: stroke 0.3s ease;
+}
+.portfolio-add:hover .portfolio-add-icon svg { stroke: white; }
+.portfolio-add-text {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gray-400);
+}
+
+/* ============================
+   PROCESS
+   ============================ */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+  position: relative;
+}
+.process-grid::before {
+  content: '';
+  position: absolute;
+  top: 24px;
+  left: 12.5%;
+  right: 12.5%;
+  height: 1px;
+  background: var(--gray-200);
+}
+
+.process-step {
+  text-align: center;
+  position: relative;
+}
+.process-num {
+  width: 48px; height: 48px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1.5px solid var(--gray-200);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: var(--black);
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+.process-step:hover .process-num {
+  background: var(--black);
+  color: var(--white);
+  border-color: var(--black);
+}
+.process-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+.process-desc {
+  font-size: 0.8rem;
+  color: var(--gray-500);
+  line-height: 1.6;
+}
+
+/* ============================
+   TESTIMONIALS
+   ============================ */
+.testi-bg { background: var(--black); color: var(--white); }
+.testi-bg .section-label { color: var(--gray-500); }
+.testi-bg .section-label::before { background: var(--gray-600); }
+.testi-bg .section-title { color: var(--white); }
+.testi-bg .section-desc { color: var(--gray-400); }
+
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.testi-card {
+  background: var(--gray-900);
+  border: 1px solid var(--gray-800);
+  border-radius: 1.25rem;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+.testi-card:hover {
+  border-color: var(--gray-600);
+  transform: translateY(-3px);
+}
+
+.testi-stars {
+  color: #facc15;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+.testi-text {
+  font-size: 0.9rem;
+  color: var(--gray-400);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+.testi-author {
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.testi-avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--gray-800);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700;
+  font-size: 0.7rem;
+  color: var(--gray-400);
+}
+.testi-name {
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+.testi-role {
+  font-size: 0.7rem;
+  color: var(--gray-500);
+}
+
+/* ============================
+   FAQ
+   ============================ */
+.faq-list {
+  max-width: 700px;
+  margin-top: 3rem;
+}
+.faq-item {
+  border-bottom: 1px solid var(--gray-100);
+}
+.faq-q {
+  width: 100%; background: none; border: none;
+  padding: 1.25rem 0;
+  display: flex; justify-content: space-between; align-items: center;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--black);
+  text-align: left;
+  transition: color 0.2s;
+}
+.faq-q:hover { color: var(--gray-500); }
+.faq-q .icon {
+  width: 20px; height: 20px; flex-shrink: 0;
+  transition: transform 0.3s ease;
+  stroke: var(--gray-400);
+  stroke-width: 2;
+  fill: none;
+}
+.faq-item.open .faq-q .icon { transform: rotate(45deg); }
+.faq-a {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.4s var(--ease);
+}
+.faq-item.open .faq-a { max-height: 200px; }
+.faq-a-inner {
+  padding-bottom: 1.25rem;
+  font-size: 0.875rem;
+  color: var(--gray-500);
+  line-height: 1.7;
+}
+
+/* ============================
+   CTA
+   ============================ */
+.cta-section {
+  background: var(--gray-50);
+  text-align: center;
+  padding: clamp(4rem, 8vw, 8rem) 2rem;
+}
+.cta-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+.cta-desc {
+  font-size: 1rem;
+  color: var(--gray-500);
+  margin-bottom: 2rem;
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cta-actions {
+  display: flex; gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ============================
+   FOOTER
+   ============================ */
+.footer {
+  border-top: 1px solid var(--gray-100);
+  padding: 3rem 2rem;
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-brand {
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: -0.03em;
+}
+.footer-links {
+  display: flex; gap: 1.5rem; list-style: none;
+}
+.footer-links a {
+  font-size: 0.8rem;
+  color: var(--gray-500);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--black); }
+.footer-copy {
+  font-size: 0.75rem;
+  color: var(--gray-400);
+}
+
+/* ============================
+   WHATSAPP FLOATING
+   ============================ */
+.wa-float {
+  position: fixed;
+  bottom: 24px; right: 24px;
+  z-index: 90;
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(37,211,102,0.3);
+  cursor: pointer;
+  transition: all 0.3s var(--ease);
+  text-decoration: none;
+  animation: waGlow 3s ease-in-out infinite;
+}
+.wa-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 24px rgba(37,211,102,0.4);
+}
+.wa-float svg { width: 24px; height: 24px; fill: white; }
+
+@keyframes waGlow {
+  0%, 100% { box-shadow: 0 4px 16px rgba(37,211,102,0.3); }
+  50% { box-shadow: 0 4px 16px rgba(37,211,102,0.3), 0 0 0 6px rgba(37,211,102,0.08); }
+}
+
+/* ============================
+   SCROLL REVEAL
+   ============================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================
+   RESPONSIVE
+   ============================ */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .mobile-btn { display: block; }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .hero { padding-top: 6rem; }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem 1.5rem;
+  }
+  .process-grid::before { display: none; }
+
+  .testi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .float-stat-1 { left: 0; }
+  .float-stat-2 { right: 0; }
+}
+
+@media (max-width: 600px) {
+  .hero h1 { font-size: 2.2rem; }
+  .process-grid { grid-template-columns: 1fr; }
+  .footer-inner { flex-direction: column; text-align: center; }
+  .float-stat { display: none; }
+  .hero-actions { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- ======================== NAVIGATION ======================== -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo">LixStudio<span></span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Layanan</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#process">Proses</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="https://wa.me/6281246113369?text=Halo%20LixStudio%2C%20saya%20mau%20tanya%20jasa%20design" class="nav-cta" target="_blank">Hubungi Kami</a></li>
+  </ul>
+  <button class="mobile-btn" id="mobileBtn" onclick="toggleMobile()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ======================== HERO ======================== -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">Available for projects</div>
+      <h1>
+        We make your<br>
+        brand <em>look like</em><br>
+        it matters.
+      </h1>
+      <p class="hero-desc">
+        LixStudio bantu UMKM tampil profesional dengan desain yang clean, memorable, dan terjangkau. Dari logo sampai website.
+      </p>
+      <div class="hero-actions">
+        <a href="https://wa.me/6281246113369?text=Halo%20LixStudio%2C%20saya%20butuh%20jasa%20design" class="btn btn-dark" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Mulai Project
+        </a>
+        <a href="#portfolio" class="btn btn-ghost">Lihat Portfolio</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="float-stat float-stat-1">
+        <div class="float-stat-num">25+</div>
+        <div class="float-stat-label">Projects</div>
+      </div>
+      <div class="float-stat float-stat-2">
+        <div class="float-stat-num">100%</div>
+        <div class="float-stat-label">Satisfied</div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-img">
+          <img src="lixscout-logo.png" alt="Lixscout Logo">
+        </div>
+        <div class="hero-card-info">
+          <div>
+            <div class="hero-card-name">Lixscout</div>
+            <div class="hero-card-type">Logo & Brand Identity</div>
+          </div>
+          <div class="hero-card-tag">Featured</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== MARQUEE ======================== -->
+<div class="marquee-wrap">
+  <div class="marquee">
+    <span class="marquee-item">Logo Design</span>
+    <span class="marquee-item">Brand Identity</span>
+    <span class="marquee-item">Web Design</span>
+    <span class="marquee-item">UI/UX Design</span>
+    <span class="marquee-item">Social Media Design</span>
+    <span class="marquee-item">Business Card</span>
+    <span class="marquee-item">Packaging Design</span>
+    <span class="marquee-item">Logo Design</span>
+    <span class="marquee-item">Brand Identity</span>
+    <span class="marquee-item">Web Design</span>
+    <span class="marquee-item">UI/UX Design</span>
+    <span class="marquee-item">Social Media Design</span>
+    <span class="marquee-item">Business Card</span>
+    <span class="marquee-item">Packaging Design</span>
+  </div>
+</div>
+
+<!-- ======================== SERVICES ======================== -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-label">Services</div>
+    <h2 class="section-title">What we do</h2>
+    <p class="section-desc">Tiga layanan utama yang bantu bisnis kamu tampil profesional.</p>
+
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-num">01</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+        </div>
+        <div class="service-name">Logo Design</div>
+        <p class="service-desc">Logo yang simple, memorable, dan scalable. Dari konsep sampai final, termasuk revisi unlimited.</p>
+        <div class="service-price">Mulai dari <strong>Rp 500rb</strong></div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-num">02</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
+        </div>
+        <div class="service-name">Brand Identity</div>
+        <p class="service-desc">Paket lengkap: logo, warna, font, kartu nama, kop surat, dan brand guideline. Biar bisnis kamu konsisten.</p>
+        <div class="service-price">Mulai dari <strong>Rp 3 juta</strong></div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-num">03</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div class="service-name">Web Design</div>
+        <p class="service-desc">Landing page atau website yang clean, cepat, dan mobile-friendly. Design + development sekaligus.</p>
+        <div class="service-price">Mulai dari <strong>Rp 2 juta</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== PORTFOLIO ======================== -->
+<section class="section portfolio-bg" id="portfolio">
+  <div class="container">
+    <div class="section-label">Portfolio</div>
+    <h2 class="section-title">Selected works</h2>
+    <p class="section-desc">Beberapa project terbaru yang udah kita kerjain.</p>
+
+    <div class="portfolio-grid">
+      <div class="portfolio-card reveal">
+        <div class="portfolio-img">
+          <img src="lixscout-logo.png" alt="Lixscout Logo">
+        </div>
+        <div class="portfolio-info">
+          <div>
+            <div class="portfolio-name">Lixscout</div>
+            <div class="portfolio-type">Logo & Brand Identity</div>
+          </div>
+          <div class="portfolio-badge">Logo</div>
+        </div>
+      </div>
+
+      <div class="portfolio-card reveal">
+        <div class="portfolio-img" style="background: linear-gradient(135deg, #1a1a2e, #16213e);">
+          <div style="text-align:center;color:white;">
+            <div style="font-size:2.5rem;font-weight:800;letter-spacing:-0.05em;">KOPI<br>SENJA</div>
+            <div style="font-size:0.7rem;opacity:0.5;margin-top:0.5rem;letter-spacing:0.15em;">COFFEE HOUSE</div>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <div>
+            <div class="portfolio-name">Kopi Senja</div>
+            <div class="portfolio-type">Logo & Brand Identity</div>
+          </div>
+          <div class="portfolio-badge">Branding</div>
+        </div>
+      </div>
+
+      <div class="portfolio-card reveal">
+        <div class="portfolio-img" style="background: linear-gradient(135deg, #f5f5f0, #e8e0d0);">
+          <div style="text-align:center;">
+            <div style="font-size:1.8rem;font-weight:300;letter-spacing:0.1em;color:#2d2d2d;">SEAFOAM</div>
+            <div style="font-size:0.6rem;letter-spacing:0.2em;color:#888;margin-top:0.25rem;">B A L I</div>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <div>
+            <div class="portfolio-name">Seafoam Bali</div>
+            <div class="portfolio-type">Logo & Packaging</div>
+          </div>
+          <div class="portfolio-badge">Logo</div>
+        </div>
+      </div>
+
+      <div class="portfolio-card reveal">
+        <div class="portfolio-img" style="background: var(--gray-50);">
+          <div style="text-align:center;">
+            <div style="width:60px;height:60px;border-radius:50%;background:#0a0a0a;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <div style="font-size:1rem;font-weight:700;letter-spacing:-0.02em;">NusaTrip</div>
+            <div style="font-size:0.65rem;color:#888;letter-spacing:0.1em;">TRAVEL PLATFORM</div>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <div>
+            <div class="portfolio-name">NusaTrip</div>
+            <div class="portfolio-type">Web Design & UI/UX</div>
+          </div>
+          <div class="portfolio-badge">Web</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== PROCESS ======================== -->
+<section class="section" id="process">
+  <div class="container">
+    <div class="section-label">Process</div>
+    <h2 class="section-title">How we work</h2>
+    <p class="section-desc">4 langkah simple dari brief sampai final.</p>
+
+    <div class="process-grid">
+      <div class="process-step reveal">
+        <div class="process-num">01</div>
+        <div class="process-title">Brief</div>
+        <p class="process-desc">Ceritain bisnis kamu, target market, dan style yang kamu suka via WhatsApp.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-num">02</div>
+        <div class="process-title">Konsep</div>
+        <p class="process-desc">Kami buat 2-3 opsi konsep desain untuk kamu pilih dan kasih feedback.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-num">03</div>
+        <div class="process-title">Revisi</div>
+        <p class="process-desc">Revisi unlimited sampai kamu 100% puas. Kita kerja bareng, bukan sendirian.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-num">04</div>
+        <div class="process-title">Final</div>
+        <p class="process-desc">File final dikirim dalam semua format (PNG, SVG, PDF, AI). Siap pakai!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== TESTIMONIALS ======================== -->
+<section class="section testi-bg" id="testimonials">
+  <div class="container">
+    <div class="section-label">Testimonials</div>
+    <h2 class="section-title">What clients say</h2>
+    <p class="section-desc">Feedback dari client yang udah pernah kerja bareng kami.</p>
+
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Logo yang dibuatin LixStudio bikin warung kopi saya keliatan profesional banget. Pelanggan pada nanya siapa yang desain!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">BR</div>
+          <div>
+            <div class="testi-name">Budi Raharjo</div>
+            <div class="testi-role">Owner, Kopi Senja</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Fast response, harga terjangkau, dan hasilnya melebihi ekspektasi. Brand guideline-nya detail banget. Highly recommended!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">SA</div>
+          <div>
+            <div class="testi-name">Siti Aminah</div>
+            <div class="testi-role">Founder, Seafoam Bali</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Dari belum punya branding sama sekali, sekarang bisnis travel saya keliatan kayak perusahaan besar. Makasih LixStudio!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">AW</div>
+          <div>
+            <div class="testi-name">Andi Wijaya</div>
+            <div class="testi-role">CEO, NusaTrip</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== FAQ ======================== -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">Pertanyaan umum</h2>
+
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Berapa lama pengerjaan logo?
+          <svg class="icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">3-5 hari kerja untuk konsep awal, termasuk 2-3 opsi. Revisi biasanya 1-2 hari per round. Total project selesai dalam 1-2 minggu.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Berapa kali revisi?
+          <svg class="icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Unlimited revisi sampai kamu puas. Kita kerja bareng sampai hasilnya perfect.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          File apa saja yang saya dapat?
+          <svg class="icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">PNG (high-res), SVG (vector), PDF, dan file mentah (AI/PSD). Plus versi hitam-putih dan variasi warna.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Bayar gimana?
+          <svg class="icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">DP 50% di awal, 50% lagi setelah final. Transfer bank (BCA, Mandiri, BNI) atau e-wallet (GoPay, OVO, Dana).</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Bisa desain selain logo?
+          <svg class="icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Bisa! Kami juga handle branding lengkap, web design, UI/UX, social media design, packaging, dan business card. Chat aja buat diskusi.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== CTA ======================== -->
+<section class="cta-section">
+  <h2 class="cta-title">Siap bikin brand<br>kamu <em style="font-family:var(--font-serif);">tampil beda?</em></h2>
+  <p class="cta-desc">Chat sekarang, konsultasi gratis. Kita bantu dari ide sampai jadi.</p>
+  <div class="cta-actions">
+    <a href="https://wa.me/6281246113369?text=Halo%20LixStudio%2C%20saya%20mau%20tanya%20jasa%20design" class="btn btn-dark" target="_blank">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Chat WhatsApp
+    </a>
+    <a href="https://www.instagram.com/" class="btn btn-ghost" target="_blank">Follow Instagram</a>
+  </div>
+</section>
+
+<!-- ======================== FOOTER ======================== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">LixStudio</div>
+    <ul class="footer-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="footer-copy">© 2024 LixStudio. All rights reserved.</div>
+  </div>
+</footer>
+
+<!-- ======================== WHATSAPP FLOATING ======================== -->
+<a href="https://wa.me/6281246113369?text=Halo%20LixStudio%2C%20saya%20mau%20tanya%20jasa%20design" class="wa-float" target="_blank" aria-label="Chat WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- ======================== JAVASCRIPT ======================== -->
+<script>
+// Navbar scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+}, { passive: true });
+
+// Mobile menu (simple toggle to WhatsApp)
+function toggleMobile() {
+  window.open('https://wa.me/6281246113369?text=Halo%20LixStudio%2C%20saya%20mau%20tanya%20jasa%20design', '_blank');
+}
+
+// FAQ toggle
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 60);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const y = target.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
