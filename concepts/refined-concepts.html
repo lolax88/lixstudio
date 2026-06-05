@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scoot Bali — Refined Concepts</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #0A0A0A;
+    color: #FFF;
+    min-height: 100vh;
+  }
+  .header {
+    text-align: center;
+    padding: 50px 20px 20px;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #39FF14;
+    letter-spacing: 3px;
+  }
+  .header p {
+    font-size: 13px;
+    color: #666;
+    margin-top: 5px;
+  }
+  .compare {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    padding: 40px 20px 80px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .version {
+    text-align: center;
+    width: 460px;
+  }
+  .version-badge {
+    display: inline-block;
+    padding: 6px 20px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+  }
+  .v2 .version-badge { background: #39FF14; color: #0A0A0A; }
+  .v3 .version-badge { background: #1A1A1A; color: #39FF14; border: 1px solid #39FF14; }
+
+  .logo-showcase {
+    background: #111;
+    border-radius: 24px;
+    padding: 60px 30px;
+    margin-bottom: 30px;
+    border: 1px solid #222;
+  }
+  .logo-showcase.light {
+    background: #F5F5F5;
+  }
+
+  .logo-row {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+
+  /* ===== KONSEP 2: BOLT ===== */
+  .bolt-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .bolt-icon {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .bolt-circle {
+    width: 100px;
+    height: 100px;
+    border: 3px solid #39FF14;
+    border-radius: 50%;
+    position: absolute;
+  }
+  .bolt-svg {
+    width: 50px;
+    height: 70px;
+    position: relative;
+    z-index: 2;
+  }
+  .bolt-svg svg { width: 100%; height: 100%; }
+  .bolt-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+  .bolt-text .name {
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 6px;
+    color: #39FF14;
+  }
+  .bolt-text .sub {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 8px;
+    color: #888;
+  }
+
+  /* Horizontal version */
+  .bolt-logo-h {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .bolt-logo-h .bolt-icon { width: 60px; height: 60px; }
+  .bolt-logo-h .bolt-circle { width: 60px; height: 60px; }
+  .bolt-logo-h .bolt-svg { width: 28px; height: 40px; }
+  .bolt-logo-h .bolt-text { align-items: flex-start; gap: 0; }
+  .bolt-logo-h .bolt-text .name { font-size: 22px; letter-spacing: 4px; }
+  .bolt-logo-h .bolt-text .sub { font-size: 10px; letter-spacing: 5px; }
+
+  /* Badge version */
+  .bolt-badge {
+    width: 160px;
+    height: 160px;
+    border: 3px solid #39FF14;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    position: relative;
+  }
+  .bolt-badge svg { width: 45px; height: 60px; }
+  .bolt-badge .badge-name {
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: #39FF14;
+  }
+  .bolt-badge .badge-sub {
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: #39FF14;
+    opacity: 0.7;
+  }
+
+  /* ===== KONSEP 3: WHEEL ===== */
+  .wheel-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .wheel-icon {
+    width: 110px;
+    height: 110px;
+    border: 3px solid #39FF14;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .wheel-hub {
+    width: 16px;
+    height: 16px;
+    background: #39FF14;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+  }
+  .wheel-leaf {
+    position: absolute;
+    width: 10px;
+    height: 32px;
+    background: #39FF14;
+    border-radius: 50%;
+    transform-origin: center 55px;
+  }
+  .wheel-leaf::after {
+    content: '';
+    position: absolute;
+    width: 1.5px;
+    height: 24px;
+    background: rgba(10,10,10,0.4);
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 1px;
+  }
+  .wheel-leaf:nth-child(1) { transform: rotate(0deg); }
+  .wheel-leaf:nth-child(2) { transform: rotate(45deg); }
+  .wheel-leaf:nth-child(3) { transform: rotate(90deg); }
+  .wheel-leaf:nth-child(4) { transform: rotate(135deg); }
+  .wheel-leaf:nth-child(5) { transform: rotate(180deg); }
+  .wheel-leaf:nth-child(6) { transform: rotate(225deg); }
+  .wheel-leaf:nth-child(7) { transform: rotate(270deg); }
+  .wheel-leaf:nth-child(8) { transform: rotate(315deg); }
+
+  .wheel-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+  .wheel-text .name {
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 6px;
+    color: #39FF14;
+  }
+  .wheel-text .sub {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 8px;
+    color: #888;
+  }
+
+  /* Horizontal */
+  .wheel-logo-h {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .wheel-logo-h .wheel-icon { width: 55px; height: 55px; }
+  .wheel-logo-h .wheel-hub { width: 8px; height: 8px; }
+  .wheel-logo-h .wheel-leaf { width: 5px; height: 15px; transform-origin: center 27px; }
+  .wheel-logo-h .wheel-leaf:nth-child(1) { transform: rotate(0deg); }
+  .wheel-logo-h .wheel-leaf:nth-child(2) { transform: rotate(45deg); }
+  .wheel-logo-h .wheel-leaf:nth-child(3) { transform: rotate(90deg); }
+  .wheel-logo-h .wheel-leaf:nth-child(4) { transform: rotate(135deg); }
+  .wheel-logo-h .wheel-leaf:nth-child(5) { transform: rotate(180deg); }
+  .wheel-logo-h .wheel-leaf:nth-child(6) { transform: rotate(225deg); }
+  .wheel-logo-h .wheel-leaf:nth-child(7) { transform: rotate(270deg); }
+  .wheel-logo-h .wheel-leaf:nth-child(8) { transform: rotate(315deg); }
+  .wheel-logo-h .wheel-text { align-items: flex-start; gap: 0; }
+  .wheel-logo-h .wheel-text .name { font-size: 22px; letter-spacing: 4px; }
+  .wheel-logo-h .wheel-text .sub { font-size: 10px; letter-spacing: 5px; }
+
+  /* Dark version */
+  .logo-showcase.dark-bg {
+    background: #1A1A1A;
+  }
+  .dark-bg .bolt-circle { border-color: #39FF14; }
+  .dark-bg .bolt-text .name,
+  .dark-bg .bolt-badge .badge-name { color: #39FF14; }
+  .dark-bg .wheel-icon { border-color: #39FF14; }
+  .dark-bg .wheel-text .name { color: #39FF14; }
+
+  /* White version */
+  .logo-showcase.light-bg {
+    background: #FFFFFF;
+  }
+  .light-bg .bolt-circle { border-color: #1A1A1A; }
+  .light-bg .bolt-svg svg polygon { fill: #1A1A1A; }
+  .light-bg .bolt-text .name { color: #1A1A1A; }
+  .light-bg .bolt-text .sub { color: #666; }
+  .light-bg .bolt-badge { border-color: #1A1A1A; }
+  .light-bg .bolt-badge svg polygon { fill: #1A1A1A; }
+  .light-bg .bolt-badge .badge-name { color: #1A1A1A; }
+  .light-bg .bolt-badge .badge-sub { color: #1A1A1A; opacity: 0.5; }
+  .light-bg .wheel-icon { border-color: #1A1A1A; }
+  .light-bg .wheel-hub { background: #1A1A1A; }
+  .light-bg .wheel-leaf { background: #1A1A1A; }
+  .light-bg .wheel-text .name { color: #1A1A1A; }
+  .light-bg .wheel-text .sub { color: #666; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #555;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+
+  .color-palette {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .swatch {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 6px;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .swatch.n { color: rgba(255,255,255,0.7); }
+  .swatch.l { color: rgba(0,0,0,0.5); }
+
+  .desc {
+    text-align: left;
+    margin-top: 24px;
+  }
+  .desc h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .desc ul {
+    list-style: none;
+    padding: 0;
+  }
+  .desc ul li {
+    font-size: 13px;
+    color: #999;
+    padding: 6px 0;
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .desc ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #39FF14;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>SCOOT BALI</h1>
+  <p>REFINED CONCEPTS — V2</p>
+</div>
+
+<div class="compare">
+
+  <!-- ========= KONSEP 2: BOLT ========= -->
+  <div class="version v2">
+    <div class="version-badge">KONSEP 2 — BOLT</div>
+
+    <div class="logo-showcase dark-bg">
+      <div class="section-label">Full Color</div>
+      <div class="logo-row">
+        <!-- Vertical -->
+        <div class="bolt-logo">
+          <div class="bolt-icon">
+            <div class="bolt-circle"></div>
+            <div class="bolt-svg">
+              <svg viewBox="0 0 60 90" fill="none">
+                <polygon points="38,0 8,42 26,42 18,90 52,36 34,36" fill="#39FF14"/>
+              </svg>
+            </div>
+          </div>
+          <div class="bolt-text">
+            <div class="name">SCOOT</div>
+            <div class="sub">BALI</div>
+          </div>
+        </div>
+
+        <!-- Badge -->
+        <div class="bolt-badge">
+          <svg viewBox="0 0 60 90" fill="none">
+            <polygon points="38,0 8,42 26,42 18,90 52,36 34,36" fill="#39FF14"/>
+          </svg>
+          <div class="badge-name">SCOOT</div>
+          <div class="badge-sub">BALI</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="logo-showcase light-bg">
+      <div class="section-label">Monochrome</div>
+      <div class="logo-row">
+        <div class="bolt-logo">
+          <div class="bolt-icon">
+            <div class="bolt-circle"></div>
+            <div class="bolt-svg">
+              <svg viewBox="0 0 60 90" fill="none">
+                <polygon points="38,0 8,42 26,42 18,90 52,36 34,36" fill="#1A1A1A"/>
+              </svg>
+            </div>
+          </div>
+          <div class="bolt-text">
+            <div class="name">SCOOT</div>
+            <div class="sub">BALI</div>
+          </div>
+        </div>
+
+        <div class="bolt-logo-h">
+          <div class="bolt-icon">
+            <div class="bolt-circle"></div>
+            <div class="bolt-svg">
+              <svg viewBox="0 0 60 90" fill="none">
+                <polygon points="38,0 8,42 26,42 18,90 52,36 34,36" fill="#1A1A1A"/>
+              </svg>
+            </div>
+          </div>
+          <div class="bolt-text">
+            <div class="name">SCOOT</div>
+            <div class="sub">BALI</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="desc">
+      <h3>⚡ Bolt / Petir</h3>
+      <ul>
+        <li><strong>Kesan:</strong> Bold, energik, modern, eye-catching</li>
+        <li><strong>Ikon:</strong> Petir listrik dalam circle badge</li>
+        <li><strong>Kekuatan:</strong> Langsung terbaca "electric", memorable</li>
+        <li><strong>Cocok untuk:</strong> Helm sticker, IG profile, sign</li>
+      </ul>
+    </div>
+
+    <div class="color-palette">
+      <div class="swatch n" style="background:#39FF14">#39FF14</div>
+      <div class="swatch n" style="background:#1A1A1A">#1A1A1A</div>
+      <div class="swatch l" style="background:#FFF;border:1px solid #333">#FFF</div>
+    </div>
+  </div>
+
+  <!-- ========= KONSEP 3: WHEEL ========= -->
+  <div class="version v3">
+    <div class="version-badge">KONSEP 3 — WHEEL + LEAF</div>
+
+    <div class="logo-showcase dark-bg">
+      <div class="section-label">Full Color</div>
+      <div class="logo-row">
+        <!-- Vertical -->
+        <div class="wheel-logo">
+          <div class="wheel-icon">
+            <div class="wheel-hub"></div>
+            <div class="wheel-leaf"></div>
+            <div class="wheel-leaf"></div>
+            <div class="wheel-leaf"></div>
+            <div class="wheel-leaf"></div>
+            <div class="wheel-leaf"></div>
+            <div class="wheel-leaf"></div>
+            <div class="wheel-leaf"></div>
+            <div class="wheel-leaf"></div>
+          </div>
+          <div class="wheel-text">
+            <div class="name">SCOOT</div>
+            <div class="sub">BALI</div>
+          </div>
+        </div>
+
+        <!-- Horizontal -->
+        <div class="wheel-logo-h">
+          <div class="wheel-icon">
+            <div class="wheel-hub"></div>
+            <div class="wheel-leaf"></div>
+            <div class="wheel-leaf"></div>
+            <div class="wheel-leaf"></div>
+            <div class="wheel-leaf"></div>
+            <div class="wheel-leaf"></div>
+            <div class="wheel-leaf"></div>
+            <div class="wheel-leaf"></div>
+            <div class="wheel-leaf"></div>
+          </div>
+          <div class="wheel-text">
+            <div class="name">SCOOT</div>
+            <div class="sub">BALI</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="logo-showcase light-bg">
+      <div class="section-label">Monochrome</div>
+      <div class="logo-row">
+        <div class="wheel-logo">
+          <div class="wheel-icon">
+            <div class="wheel-hub"></div>
+            <div class="wheel-leaf"></div>
+            <div class="wheel-leaf"></div>
+            <div class="wheel-leaf"></div>
+            <div class="wheel-leaf"></div>
+            <div class="wheel-leaf"></div>
+            <div class="wheel-leaf"></div>
+            <div class="wheel-leaf"></div>
+            <div class="wheel-leaf"></div>
+          </div>
+          <div class="wheel-text">
+            <div class="name">SCOOT</div>
+            <div class="sub">BALI</div>
+          </div>
+        </div>
+
+        <div class="wheel-logo-h">
+          <div class="wheel-icon">
+            <div class="wheel-hub"></div>
+            <div class="wheel-leaf"></div>
+            <div class="wheel-leaf"></div>
+            <div class="wheel-leaf"></div>
+            <div class="wheel-leaf"></div>
+            <div class="wheel-leaf"></div>
+            <div class="wheel-leaf"></div>
+            <div class="wheel-leaf"></div>
+            <div class="wheel-leaf"></div>
+          </div>
+          <div class="wheel-text">
+            <div class="name">SCOOT</div>
+            <div class="sub">BALI</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="desc">
+      <h3>🪴 Wheel + Leaf</h3>
+      <ul>
+        <li><strong>Kesan:</strong> Minimalis, clever, premium, eco-first</li>
+        <li><strong>Ikon:</strong> Roda motor + jeruji daun (double meaning)</li>
+        <li><strong>Kekuatan:</strong> Unik, scalable, 1 icon langsung bercerita</li>
+        <li><strong>Cocok untuk:</strong> Favicon, watermark, app icon</li>
+      </ul>
+    </div>
+
+    <div class="color-palette">
+      <div class="swatch n" style="background:#39FF14">#39FF14</div>
+      <div class="swatch n" style="background:#1A1A1A">#1A1A1A</div>
+      <div class="swatch l" style="background:#FFF;border:1px solid #333">#FFF</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

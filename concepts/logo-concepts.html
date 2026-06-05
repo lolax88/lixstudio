@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scoot Bali — Logo Concepts</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #0F0F0F;
+    color: #FFFFFF;
+    padding: 40px 20px;
+    min-height: 100vh;
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  .header h1 {
+    font-size: 32px;
+    font-weight: 800;
+    color: #39FF14;
+    margin-bottom: 8px;
+  }
+  .header p {
+    font-size: 14px;
+    color: #888;
+    letter-spacing: 2px;
+  }
+  .concepts {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .concept {
+    background: #1A1A1A;
+    border-radius: 20px;
+    padding: 30px;
+    width: 320px;
+    text-align: center;
+    border: 2px solid #2D2D2D;
+    transition: all 0.3s;
+  }
+  .concept:hover {
+    border-color: #39FF14;
+    transform: translateY(-5px);
+    box-shadow: 0 20px 60px rgba(57,255,20,0.1);
+  }
+  .concept-label {
+    display: inline-block;
+    background: #39FF14;
+    color: #0F0F0F;
+    padding: 4px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    letter-spacing: 1px;
+  }
+  .logo-area {
+    width: 220px;
+    height: 220px;
+    margin: 0 auto 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #111;
+    border-radius: 16px;
+    border: 1px dashed #333;
+  }
+  .concept h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .concept p {
+    font-size: 13px;
+    color: #999;
+    line-height: 1.6;
+  }
+  .tags {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .tag {
+    background: #222;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 11px;
+    color: #39FF14;
+  }
+
+  /* Logo A */
+  .logo-a {
+    position: relative;
+    width: 180px;
+    height: 180px;
+  }
+  .logo-a .motor {
+    width: 100px;
+    height: 55px;
+    background: #39FF14;
+    border-radius: 8px 25px 5px 8px;
+    position: absolute;
+    top: 55px;
+    left: 40px;
+  }
+  .logo-a .motor::before {
+    content: '';
+    width: 30px;
+    height: 30px;
+    background: #39FF14;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -15px;
+    left: 5px;
+    box-shadow: 65px 0 0 0 #39FF14;
+  }
+  .logo-a .motor::after {
+    content: '';
+    width: 50px;
+    height: 8px;
+    background: #39FF14;
+    border-radius: 2px;
+    position: absolute;
+    top: 5px;
+    left: -15px;
+    transform: rotate(-25deg);
+  }
+  .logo-a .handlebar {
+    width: 4px;
+    height: 30px;
+    background: #39FF14;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    transform: rotate(-10deg);
+  }
+  .logo-a .leaf {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+  }
+  .logo-a .leaf svg {
+    width: 60px;
+    height: 60px;
+  }
+  .logo-a .wordmark {
+    position: absolute;
+    bottom: -5px;
+    width: 100%;
+    text-align: center;
+  }
+  .logo-a .wordmark span {
+    font-size: 16px;
+    font-weight: 800;
+    color: #39FF14;
+    letter-spacing: 4px;
+  }
+
+  /* Logo B */
+  .logo-b {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo-b .s-bolt {
+    width: 100px;
+    height: 140px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo-b .bolt {
+    font-size: 120px;
+    font-weight: 800;
+    color: #39FF14;
+    line-height: 1;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 0 0 30px rgba(57,255,20,0.4);
+  }
+  .logo-b .bolt svg {
+    width: 80px;
+    height: 120px;
+    fill: #39FF14;
+  }
+  .logo-b .circle-badge {
+    width: 150px;
+    height: 150px;
+    border: 3px solid #39FF14;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .logo-b .wordmark {
+    position: absolute;
+    bottom: -15px;
+    width: 100%;
+    text-align: center;
+  }
+  .logo-b .wordmark span {
+    font-size: 14px;
+    font-weight: 800;
+    color: #39FF14;
+    letter-spacing: 6px;
+  }
+
+  /* Logo C */
+  .logo-c {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo-c .wheel {
+    width: 120px;
+    height: 120px;
+    border: 4px solid #39FF14;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo-c .wheel-inner {
+    width: 20px;
+    height: 20px;
+    background: #39FF14;
+    border-radius: 50%;
+  }
+  .logo-c .spoke {
+    position: absolute;
+    width: 4px;
+    height: 45px;
+    background: #39FF14;
+    transform-origin: bottom center;
+  }
+  .logo-c .leaf-spoke {
+    position: absolute;
+    width: 16px;
+    height: 40px;
+    background: none;
+    transform-origin: bottom center;
+  }
+  .logo-c .leaf-spoke::before {
+    content: '';
+    width: 14px;
+    height: 32px;
+    background: #39FF14;
+    border-radius: 50% 50% 50% 0;
+    position: absolute;
+    top: 0;
+    left: 1px;
+  }
+  .logo-c .leaf-spoke::after {
+    content: '';
+    width: 2px;
+    height: 28px;
+    background: #0F0F0F;
+    position: absolute;
+    top: 4px;
+    left: 7px;
+    border-radius: 1px;
+    opacity: 0.5;
+  }
+  .logo-c .leaf-spoke:nth-child(1) { top: -38px; left: 50%; transform: translateX(-50%) rotate(0deg); }
+  .logo-c .leaf-spoke:nth-child(2) { top: -20px; right: -12px; transform: rotate(45deg); }
+  .logo-c .leaf-spoke:nth-child(3) { top: 30px; right: -18px; transform: rotate(90deg); }
+  .logo-c .leaf-spoke:nth-child(4) { top: 72px; right: -12px; transform: rotate(135deg); }
+  .logo-c .leaf-spoke:nth-child(5) { bottom: -38px; left: 50%; transform: translateX(-50%) rotate(180deg); }
+  .logo-c .leaf-spoke:nth-child(6) { top: 72px; left: -12px; transform: rotate(225deg); }
+  .logo-c .leaf-spoke:nth-child(7) { top: 30px; left: -18px; transform: rotate(270deg); }
+  .logo-c .leaf-spoke:nth-child(8) { top: -20px; left: -12px; transform: rotate(315deg); }
+  .logo-c .wordmark {
+    position: absolute;
+    bottom: -30px;
+    width: 100%;
+    text-align: center;
+  }
+  .logo-c .wordmark span {
+    font-size: 14px;
+    font-weight: 800;
+    color: #39FF14;
+    letter-spacing: 4px;
+  }
+
+  .footer {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid #222;
+  }
+  .footer p {
+    font-size: 13px;
+    color: #555;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>SCOOT BALI</h1>
+  <p>LOGO CONCEPTS — DRAFT V1</p>
+</div>
+
+<div class="concepts">
+
+  <!-- KONSEP A -->
+  <div class="concept">
+    <div class="concept-label">KONSEP A</div>
+    <div class="logo-area">
+      <div class="logo-a">
+        <div class="handlebar"></div>
+        <div class="motor"></div>
+        <div class="leaf">
+          <svg viewBox="0 0 60 60" fill="none">
+            <path d="M30 5 C45 10 55 25 55 40 C55 50 45 55 30 55 C15 55 5 50 5 40 C5 25 15 10 30 5Z" fill="#39FF14" opacity="0.8"/>
+            <path d="M30 10 L30 50" stroke="#0F0F0F" stroke-width="2" opacity="0.5"/>
+            <path d="M30 20 L20 15" stroke="#0F0F0F" stroke-width="1.5" opacity="0.4"/>
+            <path d="M30 30 L40 22" stroke="#0F0F0F" stroke-width="1.5" opacity="0.4"/>
+            <path d="M30 35 L18 30" stroke="#0F0F0F" stroke-width="1.5" opacity="0.4"/>
+          </svg>
+        </div>
+        <div class="wordmark"><span>SCOOT</span></div>
+      </div>
+    </div>
+    <h3>Motor + Daun</h3>
+    <p>Siluet motor listrik simpel dengan daun di atasnya. Tunjukkin motor + eco dalam satu komposisi.</p>
+    <div class="tags">
+      <span class="tag">Motor</span>
+      <span class="tag">Eco</span>
+      <span class="tag">Literal</span>
+    </div>
+  </div>
+
+  <!-- KONSEP B -->
+  <div class="concept">
+    <div class="concept-label">KONSEP B</div>
+    <div class="logo-area">
+      <div class="logo-b">
+        <div class="s-bolt">
+          <div class="circle-badge"></div>
+          <svg viewBox="0 0 60 100" style="width:55px;height:90px;fill:#39FF14;">
+            <polygon points="35,0 10,45 28,45 20,100 50,42 32,42"/>
+          </svg>
+        </div>
+        <div class="wordmark"><span>SCOOT BALI</span></div>
+      </div>
+    </div>
+    <h3>Petir / Lightning Bolt</h3>
+    <p>Petir listrik dalam circle badge. Bold, eye-catching, langsung ke "electric" — tapi kurang eco.</p>
+    <div class="tags">
+      <span class="tag">Electric</span>
+      <span class="tag">Bold</span>
+      <span class="tag">Modern</span>
+    </div>
+  </div>
+
+  <!-- KONSEP C -->
+  <div class="concept">
+    <div class="concept-label">KONSEP C</div>
+    <div class="logo-area">
+      <div class="logo-c">
+        <div class="wheel">
+          <div class="wheel-inner"></div>
+          <div class="leaf-spoke"></div>
+          <div class="leaf-spoke"></div>
+          <div class="leaf-spoke"></div>
+          <div class="leaf-spoke"></div>
+          <div class="leaf-spoke"></div>
+          <div class="leaf-spoke"></div>
+          <div class="leaf-spoke"></div>
+          <div class="leaf-spoke"></div>
+        </div>
+        <div class="wordmark"><span>SCOOT BALI</span></div>
+      </div>
+    </div>
+    <h3>Roda + Daun</h3>
+    <p>Roda motor dari atas, spoke (jeruji) diganti daun kecil. Minimalis, langsung terbaca motor + eco.</p>
+    <div class="tags">
+      <span class="tag">Minimalis</span>
+      <span class="tag">Clever</span>
+      <span class="tag">Scalable</span>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <p>Scoot Bali — Brand Identity Concepts by LixStudio</p>
+</div>
+
+</body>
+</html>
