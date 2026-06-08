@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flyer Grand Opening — Kedai Nusantara</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      /* DESIGN.md tokens — Kedai Nusantara */
+      --primary: #2d5a3d;
+      --primary-light: #3d7a52;
+      --primary-dark: #1e3d29;
+      --secondary: #c9a96e;
+      --secondary-light: #d4b87a;
+      --secondary-dark: #a88a52;
+      --ink: #1a1a1a;
+      --white: #ffffff;
+      --cream: #faf6f0;
+      --light: #f5f2ec;
+      --gray: #666666;
+      --border: #e5e0d8;
+      
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+    
+    body {
+      font-family: var(--font-body);
+      background: #e8e8e8;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+    
+    /* ============================
+       FLYER — GRAND OPENING
+       ============================ */
+    .flyer {
+      width: 400px;
+      height: 566px;
+      background: var(--cream);
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+    }
+    
+    /* Top banner — hijau */
+    .flyer-top {
+      background: var(--primary);
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Decorative circles */
+    .flyer-top::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      left: -40px;
+      width: 160px;
+      height: 160px;
+      border: 2px solid rgba(201,169,110,0.15);
+      border-radius: 50%;
+    }
+    
+    .flyer-top::after {
+      content: '';
+      position: absolute;
+      bottom: -60px;
+      right: -30px;
+      width: 200px;
+      height: 200px;
+      border: 2px solid rgba(201,169,110,0.1);
+      border-radius: 50%;
+    }
+    
+    .flyer-logo {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 8px;
+      z-index: 1;
+    }
+    
+    .flyer-brand {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: var(--secondary);
+      letter-spacing: 0.05em;
+      z-index: 1;
+    }
+    
+    .flyer-brand-sub {
+      font-size: 0.6rem;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-top: 4px;
+      z-index: 1;
+    }
+    
+    /* Middle — cream area */
+    .flyer-body {
+      padding: 1.5rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+    
+    .flyer-event {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 2.2rem;
+      color: var(--primary);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    
+    .flyer-event-sub {
+      font-family: var(--font-heading);
+      font-weight: 400;
+      font-size: 1rem;
+      color: var(--secondary-dark);
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+    
+    .flyer-divider {
+      width: 60px;
+      height: 2px;
+      background: var(--secondary);
+      margin: 0 auto 1rem;
+    }
+    
+    /* Promo section */
+    .flyer-promo {
+      background: var(--white);
+      border: 2px solid var(--secondary);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .flyer-promo-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: var(--secondary-dark);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    
+    .flyer-promo-value {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 2.5rem;
+      color: var(--primary);
+      line-height: 1;
+    }
+    
+    .flyer-promo-desc {
+      font-size: 0.75rem;
+      color: var(--gray);
+      margin-top: 4px;
+    }
+    
+    /* Menu highlights */
+    .flyer-menu {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .flyer-menu-item {
+      text-align: center;
+    }
+    
+    .flyer-menu-name {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.7rem;
+      color: var(--primary);
+    }
+    
+    .flyer-menu-price {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--secondary-dark);
+    }
+    
+    .flyer-menu-desc {
+      font-size: 0.5rem;
+      color: var(--gray);
+    }
+    
+    /* Date & location */
+    .flyer-info {
+      background: var(--primary);
+      margin: 0 -2rem;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .flyer-info-item {
+      text-align: center;
+    }
+    
+    .flyer-info-label {
+      font-size: 0.5rem;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    
+    .flyer-info-value {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--secondary);
+    }
+    
+    .flyer-info-divider {
+      width: 1px;
+      height: 30px;
+      background: rgba(255,255,255,0.2);
+    }
+    
+    /* Bottom — CTA */
+    .flyer-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--secondary);
+      padding: 0.8rem 2rem;
+      text-align: center;
+    }
+    
+    .flyer-cta {
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.7rem;
+      color: var(--white);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    
+    .flyer-cta-sub {
+      font-size: 0.55rem;
+      color: rgba(255,255,255,0.8);
+      margin-top: 2px;
+    }
+    
+    /* Label */
+    .flyer-label {
+      font-size: 0.75rem;
+      color: var(--gray);
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- FLYER 1: Grand Opening -->
+  <div class="flyer">
+    
+    <!-- Top: Logo + Brand -->
+    <div class="flyer-top">
+      <img src="../../images/portfolio/kedai-nusantara/kedai-nusantara-icon.png" class="flyer-logo" alt="Kedai Nusantara">
+      <div class="flyer-brand">KEDAI NUSANTARA</div>
+      <div class="flyer-brand-sub">Cita Rasa Nusantara, Segelas Penuh Cerita</div>
+    </div>
+    
+    <!-- Body: Event + Promo -->
+    <div class="flyer-body">
+      <div class="flyer-event">Grand Opening</div>
+      <div class="flyer-event-sub">Merayakan cita rasa nusantara</div>
+      
+      <div class="flyer-divider"></div>
+      
+      <!-- Promo -->
+      <div class="flyer-promo">
+        <div class="flyer-promo-label">Spesial Pembukaan</div>
+        <div class="flyer-promo-value">Diskon 20%</div>
+        <div class="flyer-promo-desc">Semua menu kopi • Berlaku 3 hari pertama</div>
+      </div>
+      
+      <!-- Menu Highlights -->
+      <div class="flyer-menu">
+        <div class="flyer-menu-item">
+          <div class="flyer-menu-name">Kopi Aceh Gayo</div>
+          <div class="flyer-menu-price">Rp 25rb</div>
+        </div>
+        <div class="flyer-menu-item">
+          <div class="flyer-menu-name">Kopi Toraja</div>
+          <div class="flyer-menu-price">Rp 28rb</div>
+        </div>
+        <div class="flyer-menu-item">
+          <div class="flyer-menu-name">Kopi Bali Kintamani</div>
+          <div class="flyer-menu-price">Rp 22rb</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Info: Tanggal + Lokasi -->
+    <div class="flyer-info">
+      <div class="flyer-info-item">
+        <div class="flyer-info-label">Tanggal</div>
+        <div class="flyer-info-value">15 Juni 2026</div>
+      </div>
+      <div class="flyer-info-divider"></div>
+      <div class="flyer-info-item">
+        <div class="flyer-info-label">Jam</div>
+        <div class="flyer-info-value">08.00 - 22.00</div>
+      </div>
+      <div class="flyer-info-divider"></div>
+      <div class="flyer-info-item">
+        <div class="flyer-info-label">Lokasi</div>
+        <div class="flyer-info-value">Jl. [Alamat]</div>
+      </div>
+    </div>
+    
+    <!-- Bottom CTA -->
+    <div class="flyer-bottom">
+      <div class="flyer-cta">📱 WhatsApp: 0812-4611-3369</div>
+      <div class="flyer-cta-sub">📸 Follow @kedainusantara</div>
+    </div>
+    
+  </div>
+  <div class="flyer-label">Flyer Grand Opening — Kedai Nusantara</div>
+  
+</body>
+</html>

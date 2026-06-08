@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Old Money Fashion — Visual Reference</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --primary: #1C1917;
+      --secondary: #44403C;
+      --accent: #A16207;
+      --bg: #FAFAF9;
+      --card: #FFFFFF;
+      --border: #D6D3D1;
+      --cream: #F5F0E1;
+      --foreground: #0C0A09;
+      
+      --font-serif: 'Cormorant', Georgia, serif;
+      --font-sans: 'Montserrat', system-ui, sans-serif;
+    }
+    
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--foreground);
+      padding: 2rem;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: -0.03em;
+      margin-bottom: 0.5rem;
+    }
+    
+    .subtitle {
+      font-size: 0.85rem;
+      color: var(--secondary);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 3rem;
+    }
+    
+    .section {
+      margin-bottom: 3rem;
+    }
+    
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    /* Color Palette */
+    .palette {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+    
+    .swatch {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    
+    .swatch-color {
+      height: 80px;
+    }
+    
+    .swatch-info {
+      padding: 0.75rem;
+      background: var(--card);
+    }
+    
+    .swatch-name {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--primary);
+    }
+    
+    .swatch-hex {
+      font-size: 0.75rem;
+      color: var(--secondary);
+      font-family: monospace;
+    }
+    
+    /* Typography */
+    .type-demo {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .type-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    
+    .type-heading {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+    
+    .type-body {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--secondary);
+      line-height: 1.6;
+    }
+    
+    .type-meta {
+      font-size: 0.75rem;
+      color: var(--border);
+      margin-top: 0.5rem;
+    }
+    
+    /* Buttons */
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      padding: 14px 32px;
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 0;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary {
+      background: var(--primary);
+      color: var(--card);
+    }
+    
+    .btn-primary:hover {
+      background: var(--accent);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 1.5px solid var(--primary);
+    }
+    
+    .btn-outline:hover {
+      background: var(--primary);
+      color: var(--card);
+    }
+    
+    .btn-accent {
+      background: var(--accent);
+      color: var(--card);
+    }
+    
+    /* Product Card */
+    .product-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 0;
+      overflow: hidden;
+      max-width: 300px;
+    }
+    
+    .product-img {
+      width: 100%;
+      height: 350px;
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      color: var(--border);
+    }
+    
+    .product-info {
+      padding: 1.25rem;
+    }
+    
+    .product-name {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+    }
+    
+    .product-category {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      margin-bottom: 0.75rem;
+    }
+    
+    .product-price {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    
+    /* Do's and Don'ts */
+    .dos-donts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    
+    .do-box, .dont-box {
+      padding: 1.5rem;
+      border-radius: 8px;
+    }
+    
+    .do-box {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+    }
+    
+    .dont-box {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+    }
+    
+    .box-title {
+      font-weight: 700;
+      font-size: 0.85rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    .do-box .box-title { color: #15803d; }
+    .dont-box .box-title { color: #dc2626; }
+    
+    .box-list {
+      list-style: none;
+      font-size: 0.8rem;
+      color: var(--secondary);
+    }
+    
+    .box-list li {
+      padding: 0.25rem 0;
+    }
+    
+    .do-box .box-list li::before { content: '✓ '; color: #15803d; font-weight: 700; }
+    .dont-box .box-list li::before { content: '✗ '; color: #dc2626; font-weight: 700; }
+  </style>
+</head>
+<body>
+  
+  <div class="container">
+    
+    <h1>Old Money Fashion</h1>
+    <div class="subtitle">Visual Reference — LixStudio Brief</div>
+    
+    <!-- Color Palette -->
+    <div class="section">
+      <div class="section-title">Color Palette</div>
+      <div class="palette">
+        <div class="swatch">
+          <div class="swatch-color" style="background: #1C1917;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Primary</div>
+            <div class="swatch-hex">#1C1917</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: #44403C;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Secondary</div>
+            <div class="swatch-hex">#44403C</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: #A16207;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Accent (Emas)</div>
+            <div class="swatch-hex">#A16207</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: #F5F0E1;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Cream</div>
+            <div class="swatch-hex">#F5F0E1</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: #FAFAF9;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Background</div>
+            <div class="swatch-hex">#FAFAF9</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: #FFFFFF; border-bottom: 1px solid #e5e5e5;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Card</div>
+            <div class="swatch-hex">#FFFFFF</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: #D6D3D1;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Border</div>
+            <div class="swatch-hex">#D6D3D1</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: #0C0A09;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Foreground</div>
+            <div class="swatch-hex">#0C0A09</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Typography -->
+    <div class="section">
+      <div class="section-title">Typography</div>
+      
+      <div class="type-demo">
+        <div class="type-label">Heading — Cormorant (Serif)</div>
+        <div class="type-heading">Crafted for Those Who Know the Difference</div>
+        <div class="type-meta">Font: Cormorant • Weight: 700 • Size: clamp(2rem, 5vw, 3.5rem) • Letter-spacing: -0.03em</div>
+      </div>
+      
+      <div class="type-demo">
+        <div class="type-label">Body — Montserrat (Sans-serif)</div>
+        <div class="type-body">Investment pieces crafted from the finest materials. Each garment is designed to transcend seasons and trends, becoming a permanent fixture in a wardrobe built to last. Quality is not an expense — it is an investment.</div>
+        <div class="type-meta">Font: Montserrat • Weight: 400 • Size: 1rem • Line-height: 1.6</div>
+      </div>
+    </div>
+    
+    <!-- Buttons -->
+    <div class="section">
+      <div class="section-title">Buttons</div>
+      <div class="btn-group">
+        <button class="btn btn-primary">Explore Collection</button>
+        <button class="btn btn-outline">Our Story</button>
+        <button class="btn btn-accent">Shop Now</button>
+      </div>
+    </div>
+    
+    <!-- Product Card -->
+    <div class="section">
+      <div class="section-title">Product Card</div>
+      <div class="product-card">
+        <div class="product-img">[Product Photo]</div>
+        <div class="product-info">
+          <div class="product-category">Outerwear</div>
+          <div class="product-name">Cashmere Overcoat</div>
+          <div class="product-price">Rp 12.500.000</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Do's and Don'ts -->
+    <div class="section">
+      <div class="section-title">Do's and Don'ts</div>
+      <div class="dos-donts">
+        <div class="do-box">
+          <div class="box-title">✓ Do</div>
+          <ul class="box-list">
+            <li>Warna netral (hitam, cream, navy)</li>
+            <li>Whitespace yang generous</li>
+            <li>Foto produk berkualitas tinggi</li>
+            <li>Logo kecil dan subtle</li>
+            <li>Tone confident tapi understated</li>
+          </ul>
+        </div>
+        <div class="dont-box">
+          <div class="box-title">✗ Don't</div>
+          <ul class="box-list">
+            <li>Warna neon atau mencolok</li>
+            <li>Banner diskon besar</li>
+            <li>Animasi berlebihan</li>
+            <li>Font dekoratif/script</li>
+            <li>Logo besar di mana-mana</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+</body>
+</html>

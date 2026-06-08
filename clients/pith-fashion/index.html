@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PITH — The Essence of Style</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      /* PITH Brand Tokens */
+      --ink: #0C0A09;
+      --canvas: #ffffff;
+      --soft-cloud: #f5f5f5;
+      --charcoal: #44403C;
+      --mute: #707072;
+      --hairline: #cacacb;
+      --hairline-soft: #e5e5e5;
+      --accent: #A16207;
+      --cream: #F5F0E1;
+      
+      /* Nike-style typography */
+      --font-display: 'Bodoni Moda', Georgia, serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+      
+      /* Nike-style spacing (8px base) */
+      --sp-xs: 4px;
+      --sp-sm: 8px;
+      --sp-md: 12px;
+      --sp-lg: 18px;
+      --sp-xl: 24px;
+      --sp-xxl: 30px;
+      --sp-section: 48px;
+      
+      /* Nike-style rounded */
+      --r-none: 0px;
+      --r-sm: 18px;
+      --r-md: 24px;
+      --r-lg: 30px;
+      --r-full: 9999px;
+    }
+    
+    html { scroll-behavior: smooth; }
+    
+    body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--ink);
+      background: var(--canvas);
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    /* ============================
+       UTILITY BAR (Nike-style)
+       ============================ */
+    .utility-bar {
+      background: var(--soft-cloud);
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 40px;
+      gap: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--mute);
+    }
+    
+    .utility-bar a {
+      color: var(--mute);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    
+    .utility-bar a:hover { color: var(--ink); }
+    
+    /* ============================
+       PRIMARY NAV (Nike-style)
+       ============================ */
+    .nav {
+      background: var(--canvas);
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      border-bottom: 1px solid var(--hairline-soft);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      text-decoration: none;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      position: relative;
+      transition: color 0.2s;
+    }
+    
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--ink);
+      transform: scaleX(0);
+      transition: transform 0.2s;
+    }
+    
+    .nav-links a:hover::after { transform: scaleX(1); }
+    
+    .nav-icons {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+    
+    .nav-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--r-full);
+      background: var(--soft-cloud);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s;
+      font-size: 1.1rem;
+    }
+    
+    .nav-icon:hover { background: var(--hairline-soft); }
+    
+    /* ============================
+       CAMPAIGN HERO (Nike-style)
+       ============================ */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 85vh;
+      min-height: 600px;
+      background: var(--ink);
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 60px 80px;
+    }
+    
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #1a1614 0%, #2a2420 40%, #0C0A09 100%);
+      opacity: 0.9;
+    }
+    
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        radial-gradient(circle at 20% 80%, rgba(161,98,7,0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(161,98,7,0.05) 0%, transparent 50%);
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+    }
+    
+    .hero-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+      padding: 6px 16px;
+      border: 1px solid rgba(161,98,7,0.3);
+      border-radius: var(--r-full);
+    }
+    
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      font-weight: 700;
+      line-height: 0.9;
+      color: var(--canvas);
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+    
+    .hero-desc {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+      max-width: 500px;
+      margin-bottom: 32px;
+    }
+    
+    .hero-ctas {
+      display: flex;
+      gap: 12px;
+    }
+    
+    /* ============================
+       BUTTONS (Nike-style pills)
+       ============================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 16px 32px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border-radius: var(--r-full);
+    }
+    
+    .btn-primary {
+      background: var(--canvas);
+      color: var(--ink);
+    }
+    
+    .btn-primary:hover {
+      background: var(--soft-cloud);
+      transform: scale(1.02);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: var(--canvas);
+      border: 1.5px solid rgba(255,255,255,0.4);
+    }
+    
+    .btn-secondary:hover {
+      border-color: var(--canvas);
+      background: rgba(255,255,255,0.1);
+    }
+    
+    .btn-dark {
+      background: var(--ink);
+      color: var(--canvas);
+    }
+    
+    .btn-dark:hover {
+      background: var(--charcoal);
+    }
+    
+    .btn-accent {
+      background: var(--accent);
+      color: var(--canvas);
+    }
+    
+    .btn-accent:hover {
+      background: #8B5306;
+    }
+    
+    /* ============================
+       SECTIONS
+       ============================ */
+    .section {
+      padding: var(--sp-section) 40px;
+    }
+    
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+    }
+    
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+    
+    .section-link {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      transition: color 0.2s;
+    }
+    
+    .section-link:hover { color: var(--mute); }
+    
+    /* ============================
+       PRODUCT GRID (Nike-style)
+       ============================ */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--sp-sm);
+    }
+    
+    .product-card {
+      cursor: pointer;
+    }
+    
+    .product-img {
+      aspect-ratio: 1;
+      background: var(--soft-cloud);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .product-img-placeholder {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--hairline);
+      opacity: 0.5;
+    }
+    
+    .product-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: var(--canvas);
+      padding: 4px 12px;
+      border-radius: var(--r-full);
+      border: 1px solid var(--hairline);
+    }
+    
+    .product-info {
+      padding: 12px 0 0;
+    }
+    
+    .product-swatches {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+    
+    .swatch {
+      width: 12px;
+      height: 12px;
+      border-radius: var(--r-full);
+      border: 1px solid var(--hairline-soft);
+    }
+    
+    .product-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+    
+    .product-category {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--mute);
+      margin-bottom: 8px;
+    }
+    
+    .product-price {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    
+    .product-price-sale {
+      color: var(--accent);
+    }
+    
+    .product-price-original {
+      color: var(--mute);
+      text-decoration: line-through;
+      margin-left: 8px;
+      font-weight: 400;
+    }
+    
+    /* ============================
+       CAMPAIGN TILE (Nike-style)
+       ============================ */
+    .campaign-tile {
+      position: relative;
+      aspect-ratio: 16/9;
+      min-height: 400px;
+      background: var(--ink);
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 48px;
+      cursor: pointer;
+    }
+    
+    .campaign-tile-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #2a2420 0%, #1a1614 50%, #0C0A09 100%);
+    }
+    
+    .campaign-tile-content {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .campaign-tile-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 700;
+      line-height: 0.9;
+      color: var(--canvas);
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+    
+    /* ============================
+       EDITORIAL SECTION
+       ============================ */
+    .editorial-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-sm);
+    }
+    
+    .editorial-card {
+      position: relative;
+      aspect-ratio: 4/5;
+      background: var(--soft-cloud);
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 32px;
+      cursor: pointer;
+    }
+    
+    .editorial-card-content {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .editorial-card-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      font-weight: 600;
+      color: var(--ink);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    
+    /* ============================
+       BENEFIT CARDS (Nike member)
+       ============================ */
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-sm);
+    }
+    
+    .benefit-card {
+      background: var(--ink);
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 300px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    
+    .benefit-card:hover { transform: translateY(-4px); }
+    
+    .benefit-icon {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    
+    .benefit-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--canvas);
+      margin-bottom: 8px;
+    }
+    
+    .benefit-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+    
+    .benefit-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--canvas);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    
+    .benefit-cta:hover { opacity: 0.7; }
+    
+    /* ============================
+       QUOTE / BRAND STATEMENT
+       ============================ */
+    .brand-statement {
+      text-align: center;
+      padding: 100px 40px;
+      background: var(--cream);
+    }
+    
+    .brand-statement-quote {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.2;
+      max-width: 800px;
+      margin: 0 auto 24px;
+    }
+    
+    .brand-statement-author {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--mute);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    
+    /* ============================
+       FOOTER (Nike-style)
+       ============================ */
+    .footer {
+      background: var(--canvas);
+      border-top: 1px solid var(--hairline);
+      padding: 48px 40px 24px;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      margin-bottom: 48px;
+    }
+    
+    .footer-col-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+    
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .footer-links a {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--mute);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    
+    .footer-links a:hover { color: var(--ink); }
+    
+    .footer-bottom {
+      border-top: 1px solid var(--hairline-soft);
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .footer-copyright {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--mute);
+    }
+    
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+    
+    .footer-social a {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--r-full);
+      background: var(--soft-cloud);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+    
+    .footer-social a:hover { background: var(--hairline-soft); }
+    
+    /* ============================
+       MOBILE RESPONSIVE
+       ============================ */
+    @media (max-width: 1024px) {
+      .product-grid { grid-template-columns: repeat(3, 1fr); }
+      .benefit-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    
+    @media (max-width: 768px) {
+      .nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .section { padding: 32px 20px; }
+      .hero { padding: 40px 24px; height: 70vh; }
+      .product-grid { grid-template-columns: repeat(2, 1fr); }
+      .editorial-grid { grid-template-columns: 1fr; }
+      .benefit-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+      .campaign-tile { padding: 32px 24px; min-height: 300px; }
+    }
+    
+    @media (max-width: 480px) {
+      .product-grid { grid-template-columns: 1fr; }
+      .utility-bar { display: none; }
+      .hero-title { font-size: 3rem; }
+      .hero-ctas { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Utility Bar -->
+  <div class="utility-bar">
+    <a href="#">Store Locator</a>
+    <a href="#">Help</a>
+    <a href="#">Join Us</a>
+    <a href="#">Sign In</a>
+  </div>
+  
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="#" class="nav-logo">PITH</a>
+    <ul class="nav-links">
+      <li><a href="#collection">Collection</a></li>
+      <li><a href="#new">New Arrivals</a></li>
+      <li><a href="#editorial">Editorial</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <div class="nav-icons">
+      <div class="nav-icon">🔍</div>
+      <div class="nav-icon">♡</div>
+      <div class="nav-icon">🛒</div>
+    </div>
+  </nav>
+  
+  <!-- Hero Campaign -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-pattern"></div>
+    <div class="hero-content">
+      <div class="hero-tag">New Collection 2026</div>
+      <h1 class="hero-title">Crafted for Those Who Know</h1>
+      <p class="hero-desc">Investment pieces crafted from the finest materials. Each garment designed to transcend seasons and trends.</p>
+      <div class="hero-ctas">
+        <a href="#collection" class="btn btn-primary">Explore Collection</a>
+        <a href="#about" class="btn btn-secondary">Our Story</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Trending Now -->
+  <section class="section" id="collection">
+    <div class="section-header">
+      <h2 class="section-title">Trending Now</h2>
+      <a href="#" class="section-link">View All</a>
+    </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-img">
+          <div class="product-img-placeholder">P</div>
+          <div class="product-badge">Just In</div>
+        </div>
+        <div class="product-info">
+          <div class="product-swatches">
+            <div class="swatch" style="background: #1C1917;"></div>
+            <div class="swatch" style="background: #F5F0E1;"></div>
+          </div>
+          <div class="product-name">Cashmere Overcoat</div>
+          <div class="product-category">Men's Outerwear</div>
+          <div class="product-price">Rp 12.500.000</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">
+          <div class="product-img-placeholder">P</div>
+        </div>
+        <div class="product-info">
+          <div class="product-swatches">
+            <div class="swatch" style="background: #0C0A09;"></div>
+            <div class="swatch" style="background: #44403C;"></div>
+          </div>
+          <div class="product-name">Merino Wool Blazer</div>
+          <div class="product-category">Men's Tailoring</div>
+          <div class="product-price">Rp 8.750.000</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">
+          <div class="product-img-placeholder">P</div>
+        </div>
+        <div class="product-info">
+          <div class="product-swatches">
+            <div class="swatch" style="background: #D4C4A8;"></div>
+            <div class="swatch" style="background: #F5F0E1;"></div>
+          </div>
+          <div class="product-name">Linen Shirt</div>
+          <div class="product-category">Men's Shirts</div>
+          <div class="product-price">Rp 2.250.000</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">
+          <div class="product-img-placeholder">P</div>
+          <div class="product-badge">Member Exclusive</div>
+        </div>
+        <div class="product-info">
+          <div class="product-swatches">
+            <div class="swatch" style="background: #1C1917;"></div>
+          </div>
+          <div class="product-name">Leather Weekender</div>
+          <div class="product-category">Accessories</div>
+          <div class="product-price">Rp 15.000.000</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Campaign Tile -->
+  <section class="section" style="padding-top: 0;">
+    <div class="campaign-tile">
+      <div class="campaign-tile-bg"></div>
+      <div class="campaign-tile-content">
+        <h2 class="campaign-tile-title">Quiet Luxury,<br>Loud Quality</h2>
+        <a href="#" class="btn btn-primary">Shop The Edit</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Brand Statement -->
+  <section class="brand-statement">
+    <div class="brand-statement-quote">"Not for everyone. And that's the point."</div>
+    <div class="brand-statement-author">— PITH</div>
+  </section>
+  
+  <!-- Editorial -->
+  <section class="section" id="editorial">
+    <div class="section-header">
+      <h2 class="section-title">The Edit</h2>
+      <a href="#" class="section-link">Explore</a>
+    </div>
+    <div class="editorial-grid">
+      <div class="editorial-card">
+        <div class="editorial-card-content">
+          <h3 class="editorial-card-title">The Art of<br>Dressing Well</h3>
+          <a href="#" class="btn btn-dark" style="font-size: 12px; padding: 12px 24px;">Read More</a>
+        </div>
+      </div>
+      <div class="editorial-card">
+        <div class="editorial-card-content">
+          <h3 class="editorial-card-title">Craftsmanship<br>Heritage</h3>
+          <a href="#" class="btn btn-dark" style="font-size: 12px; padding: 12px 24px;">Discover</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Member Benefits -->
+  <section class="section" id="about">
+    <div class="section-header">
+      <h2 class="section-title">Why PITH</h2>
+    </div>
+    <div class="benefit-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">🧵</div>
+        <div class="benefit-title">Craftsmanship</div>
+        <div class="benefit-desc">Every piece is meticulously crafted by artisans who understand that quality is not an expense — it is an investment.</div>
+        <a href="#" class="benefit-cta">Our Process →</a>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🌿</div>
+        <div class="benefit-title">Sustainability</div>
+        <div class="benefit-desc">We source only the finest materials — cashmere, merino wool, Egyptian cotton — from responsible suppliers.</div>
+        <a href="#" class="benefit-cta">Our Materials →</a>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">♻️</div>
+        <div class="benefit-title">Longevity</div>
+        <div class="benefit-desc">Designed to last decades, not seasons. Each garment comes with our lifetime care guarantee.</div>
+        <a href="#" class="benefit-cta">Care Guide →</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-col-title">Resources</div>
+        <ul class="footer-links">
+          <li><a href="#">Find A Store</a></li>
+          <li><a href="#">Become A Member</a></li>
+          <li><a href="#">Send Us Feedback</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Help</div>
+        <ul class="footer-links">
+          <li><a href="#">Get Help</a></li>
+          <li><a href="#">Order Status</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="#">About PITH</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Investor Relations</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Connect</div>
+        <ul class="footer-links">
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">WhatsApp</a></li>
+          <li><a href="#">Newsletter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copyright">© 2026 PITH. All Rights Reserved.</div>
+      <div class="footer-social">
+        <a href="#">📸</a>
+        <a href="#">💬</a>
+      </div>
+    </div>
+  </footer>
+  
+</body>
+</html>
